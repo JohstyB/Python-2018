@@ -18,9 +18,14 @@ responses = ["It is certain.", "It is decidedly so.", "Without a doubt.",
 #question accordingly. Will also not ask for the user's name after the 1st question.
 questionAsked = 0
 
+
+
+#Makes it to where it only asks for the user's name once, since
+#it is outside of the loop.
+userName = input("What is your name?: ")
+
 while True:
     if questionAsked < 1:
-        userName = input("What is your name?: ")
         firstQuestion = input("Would you like to ask a question? Answer with Y or N: ")
         if firstQuestion == ("Y"):
             secondQuestion = input("Please ask your question: ")
@@ -31,15 +36,14 @@ while True:
             print("Ok then, Goodbye!")
             break
         else:
-                print("Please enter a valid response.")
+            print("Please enter a valid response.")
     if questionAsked == 1:
-        firstQuestion = input("Would you like to ask another question? Answer with Y or N: ")
-        if firstQuestion == ("Y"):
+        thirdQuestion = input("Would you like to ask another question? Answer with Y or N: ")
+        if thirdQuestion == ("Y"):
             secondQuestion = input("Please ask your question: ")
             result = random.choice(list(responses))
             print("The answer to the question: ' %s ', %s , is: %s." % (secondQuestion, userName, result))
-            questionAsked = 1
-        elif firstQuestion == ("N"):
+        elif thirdQuestion == ("N"):
             print("Ok then, Goodbye!")
             break
         else:
